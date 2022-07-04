@@ -11,25 +11,33 @@ let criarDiv = document.createElement('div')
 body.appendChild(criarDiv)
 criarDiv.setAttribute ('id', 'color-palette')
 criarDiv.style.marginLeft = '30px'
-let ulFilho = document.getElementById('color-palette')
+let divPai = document.getElementById('color-palette')
 function criarPaleta() {
 for(let i=0;i<cores.length;i+=1) {
-    let criarLi = document.createElement('div')
-    criarLi.className = 'color'
-    ulFilho.appendChild(criarLi)
-    criarLi.style.border = 'black solid 1px';
-    criarLi.style.width = '45px'
-    criarLi.style.height = '45px'
-    criarLi.style.display = 'inline-block'
+    let criarDivFilho = document.createElement('div')
+    criarDivFilho.className = 'color'
+    divPai.appendChild(criarDivFilho)
+    criarDivFilho.style.border = 'black solid 1px';
+    criarDivFilho.style.width = '45px'
+    criarDivFilho.style.height = '45px'
+    criarDivFilho.style.display = 'inline-block'
+    criarDivFilho.addEventListener('click', divRecebeCor)
     if(cores[i] == 'preto')
-    criarLi.style.backgroundColor = 'black'
+    criarDivFilho.classList.add('selected')
+    criarDivFilho.style.backgroundColor = 'black'
     if(cores[i] == 'verde')
-    criarLi.style.backgroundColor = 'green'
+    criarDivFilho.style.backgroundColor = 'green'
     if(cores[i] == 'azul')
-    criarLi.style.backgroundColor = 'blue'
+    criarDivFilho.style.backgroundColor = 'blue'
     if(cores[i] == 'amarelo')
-    criarLi.style.backgroundColor = 'yellow'
+    criarDivFilho.style.backgroundColor = 'yellow'
 }
+}
+
+function divRecebeCor(event){
+    let selector = document.querySelector('.selected')
+    selector.classList.remove('selected')
+    event.target.classList.add('selected')    
 }
 
 function criarBloco() {
@@ -44,15 +52,14 @@ function criarBloco() {
     let pixelBlock = document.getElementById('pixel-board')
     for(let i=0;i<5;i+=1) {
         for(let y=0;y<5;y+=1) {
-        let criarLi = document.createElement('div')
-        console.log(criarLi)
-        criarLi.className = 'pixel'
-        pixelBlock.appendChild(criarLi)
-        criarLi.style.border = 'black solid 1px';
-        criarLi.style.width = '40px'
-        criarLi.style.height = '40px'
-        criarLi.style.display = 'inline-block'
-        criarLi.style.backgroundColor = 'white'
+        let criarDivFilho = document.createElement('div')
+        criarDivFilho.className = 'pixel'
+        pixelBlock.appendChild(criarDivFilho)
+        criarDivFilho.style.border = 'black solid 1px';
+        criarDivFilho.style.width = '40px'
+        criarDivFilho.style.height = '40px'
+        criarDivFilho.style.display = 'inline-block'
+        criarDivFilho.style.backgroundColor = 'white'
     }
     }
 }
