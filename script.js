@@ -10,6 +10,7 @@ body.appendChild(criarTitulo)
 let criarDiv = document.createElement('div')
 body.appendChild(criarDiv)
 criarDiv.setAttribute ('id', 'color-palette')
+criarDiv.style.marginLeft = '30px'
 let ulFilho = document.getElementById('color-palette')
 function criarPaleta() {
 for(let i=0;i<cores.length;i+=1) {
@@ -17,8 +18,8 @@ for(let i=0;i<cores.length;i+=1) {
     criarLi.className = 'color'
     ulFilho.appendChild(criarLi)
     criarLi.style.border = 'black solid 1px';
-    criarLi.style.width = '40px'
-    criarLi.style.height = '40px'
+    criarLi.style.width = '45px'
+    criarLi.style.height = '45px'
     criarLi.style.display = 'inline-block'
     if(cores[i] == 'preto')
     criarLi.style.backgroundColor = 'black'
@@ -34,9 +35,9 @@ for(let i=0;i<cores.length;i+=1) {
 function criarBloco() {
     let criarDiv = document.createElement('div')
     body.appendChild(criarDiv)
-    criarDiv.style.marginTop = '40px'
-    criarDiv.style.width = '135px'
-    criarDiv.style.height = '135px'
+    criarDiv.style.marginTop = '20px'
+    criarDiv.style.width = '210px'
+    criarDiv.style.height = '210px'
     criarDiv.style.marginLeft = '20px'
     criarDiv.style.fontSize = '0px'
     criarDiv.setAttribute ('id', 'pixel-board')
@@ -48,8 +49,8 @@ function criarBloco() {
         criarLi.className = 'pixel'
         pixelBlock.appendChild(criarLi)
         criarLi.style.border = 'black solid 1px';
-        criarLi.style.width = '25px'
-        criarLi.style.height = '25px'
+        criarLi.style.width = '40px'
+        criarLi.style.height = '40px'
         criarLi.style.display = 'inline-block'
         criarLi.style.backgroundColor = 'white'
     }
