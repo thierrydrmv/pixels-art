@@ -7,10 +7,11 @@ criarTitulo.innerText = 'Paleta de Cores';
 criarTitulo.setAttribute ('id', 'title')
 body.appendChild(criarTitulo)
 
-let criarUl = document.createElement('div')
-body.appendChild(criarUl)
-criarUl.setAttribute ('id', 'color-palette')
+let criarDiv = document.createElement('div')
+body.appendChild(criarDiv)
+criarDiv.setAttribute ('id', 'color-palette')
 let ulFilho = document.getElementById('color-palette')
+function criarPaleta() {
 for(let i=0;i<cores.length;i+=1) {
     let criarLi = document.createElement('div')
     criarLi.className = 'color'
@@ -28,5 +29,31 @@ for(let i=0;i<cores.length;i+=1) {
     if(cores[i] == 'amarelo')
     criarLi.style.backgroundColor = 'yellow'
 }
+}
 
-
+function criarBloco() {
+    let criarDiv = document.createElement('div')
+    body.appendChild(criarDiv)
+    criarDiv.style.marginTop = '40px'
+    criarDiv.style.width = '135px'
+    criarDiv.style.height = '135px'
+    criarDiv.style.marginLeft = '20px'
+    criarDiv.style.fontSize = '0px'
+    criarDiv.setAttribute ('id', 'pixel-board')
+    let pixelBlock = document.getElementById('pixel-board')
+    for(let i=0;i<5;i+=1) {
+        for(let y=0;y<5;y+=1) {
+        let criarLi = document.createElement('div')
+        console.log(criarLi)
+        criarLi.className = 'pixel'
+        pixelBlock.appendChild(criarLi)
+        criarLi.style.border = 'black solid 1px';
+        criarLi.style.width = '25px'
+        criarLi.style.height = '25px'
+        criarLi.style.display = 'inline-block'
+        criarLi.style.backgroundColor = 'white'
+    }
+    }
+}
+criarPaleta()
+criarBloco()
