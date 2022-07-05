@@ -67,7 +67,9 @@ for(let i=0;i<cores.length;i+=1) {
     criarBotao.style.height = '45px';
     criarBotao.style.marginLeft = '300px'
     criarBotao.style.borderRadius = '15px'
-    criarBotao.style.backgroundColor = 'white'
+    criarBotao.style.backgroundColor = 'black'
+    criarBotao.style.color = 'white'
+    criarBotao.style.fontFamily = 'monospace'
     body.appendChild(criarBotao)
     criarBotao.addEventListener('click', apagar);
     }
