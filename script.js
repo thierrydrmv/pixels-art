@@ -10,6 +10,8 @@ function aleatorio() {
 
 criarTitulo.innerText = 'Paleta de Cores';
 criarTitulo.setAttribute ('id', 'title')
+criarTitulo.style.marginLeft = '20px'
+criarTitulo.style.fontFamily = 'monospace'
 body.appendChild(criarTitulo)
 
 let criarDiv = document.createElement('div')
@@ -56,8 +58,21 @@ for(let i=0;i<cores.length;i+=1) {
         let bgColor = obj.getPropertyValue("background-color");
         console.log(bgColor)
     }
-//pegaCor()
-function criarBloco() {
+    function criarButton() {
+    let criarBotao = document.createElement('button')
+    criarBotao.setAttribute('id', 'clear-board')
+    criarBotao.innerText = 'Limpar';
+    criarBotao.style.border = 'black solid 1px';
+    criarBotao.style.width = '60px';
+    criarBotao.style.height = '45px';
+    criarBotao.style.marginLeft = '300px'
+    criarBotao.style.borderRadius = '15px'
+    criarBotao.style.backgroundColor = 'white'
+    body.appendChild(criarBotao)
+    criarBotao.addEventListener('click', apagar);
+    }
+    criarButton()
+    function criarBloco() {
     let criarDiv = document.createElement('div')
         body.appendChild(criarDiv)
         criarDiv.style.marginTop = '20px'
@@ -80,6 +95,7 @@ function criarBloco() {
             criarDivFilho.style.backgroundColor = 'white'
         }
     }
+}
     function recebeCor(event) {
         let colorir = document.querySelector('.selected');
         let estilo = window.getComputedStyle(colorir)
@@ -87,8 +103,11 @@ function criarBloco() {
         event.target.style.backgroundColor = cor
     }
 
-    // function criarButton() {
-
-    // }
+    function apagar() {
+        let pixels = document.querySelectorAll('.pixel')
+        console.log(pixels.length)
+        for (let i=0;i<pixels.length;i+=1){
+        pixels[i].style.backgroundColor = 'white'
+        }
     }
     criarBloco()
