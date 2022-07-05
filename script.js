@@ -48,9 +48,8 @@ for(let i=0;i<cores.length;i+=1) {
         event.target.classList.add('selected')
         let cor = event.target.style.backgroundColor;
         // console.log(cor)
-        return cor
-        
-}
+        return cor      
+    }
     function pegaCor() {
         let corDaPaleta = document.getElementsByClassName('selected')[0]
         let obj = window.getComputedStyle(corDaPaleta, null)
@@ -82,12 +81,14 @@ function criarBloco() {
         }
     }
     function recebeCor(event) {
+        let colorir = document.querySelector('.selected');
+        let estilo = window.getComputedStyle(colorir)
+        let cor = estilo.getPropertyValue('background-Color')
         event.target.style.backgroundColor = cor
-        
     }
 
     // function criarButton() {
 
     // }
-}
-criarBloco()
+    }
+    criarBloco()
