@@ -62,21 +62,24 @@ function apagar() {
 function criarInput() {
   const input = document.createElement('input');
   input.setAttribute('id', 'board-size');
+  input.setAttribute('type', 'number')
+  input.setAttribute('min', '1')
   input.style.marginLeft = '30px'
   body.appendChild(input);
 }
 criarInput();
-//window.alert("Board inválido!");
 function recebeValor() {
   const tamanho = document.getElementById('board-size');
   let numero = tamanho.value;
+  if (!numero)
+  window.alert("Board inválido!");
   limpaBloco();
   criarBloco(numero);
   criarPixel(numero);
 }
 function criarButtonVQV() {
   const criarBotao = document.createElement('button');
-  criarBotao.setAttribute('id', 'clear-board');
+  criarBotao.setAttribute('id', 'generate-board');
   criarBotao.innerText = 'VQV';
   criarBotao.style.border = 'black solid 1px';
   criarBotao.style.width = '45px';
@@ -120,7 +123,6 @@ function criarBloco(valor) {
   criarDivPixel.style.marginTop = '20px';
   if (valor==undefined)
     valor = 5
-  console.log(valor)
   let largura = (valor * 42)
   let string = `${largura}px`
   criarDivPixel.style.width = string
@@ -174,3 +176,4 @@ function limpaBloco() {
 
 criarBloco();
 criarPixel();
+
