@@ -62,17 +62,61 @@ function apagar() {
 function criarInput() {
   const input = document.createElement('input');
   input.setAttribute('id', 'board-size');
-  input.setAttribute('type', 'number')
-  input.setAttribute('min', '1')
-  input.style.marginLeft = '30px'
+  input.setAttribute('type', 'number');
+  input.setAttribute('min', '1');
+  input.style.marginLeft = '30px';
   body.appendChild(input);
 }
 criarInput();
+function limpaBloco() {
+  const bloco = document.getElementById('pixel-board');
+  bloco.remove();
+}
+function criarBloco(valor) {
+  const criarDivPixel = document.createElement('div');
+  if (valor === undefined || valor < 5) {
+    valor = 5;
+  } else if (valor > 50) {
+    valor = 50; }
+  body.appendChild(criarDivPixel);
+  criarDivPixel.style.marginTop = '20px';
+  if (valor === undefined) {
+    valor = 5; }
+  const largura = (valor * 42);
+  const string = `${largura}px`;
+  criarDivPixel.style.width = string;
+  criarDivPixel.style.height = '210px';
+  criarDivPixel.style.marginLeft = '20px';
+  criarDivPixel.style.fontSize = '0px';
+  criarDivPixel.setAttribute('id', 'pixel-board');
+}
+function criarPixel(valor) {
+  limpaPixel();
+  const pixelBlock = document.getElementById('pixel-board');
+  if (valor === undefined || valor < 5){
+    valor = 5;
+  } else if (valor > 50) {
+    valor = 50; }
+  for (let i = valor; i > 0; i -= 1) {
+    for (let y = valor; y > 0; y -= 1) {
+      const criarDivFilho = document.createElement('div');
+      criarDivFilho.className = 'pixel';
+      pixelBlock.appendChild(criarDivFilho);
+      criarDivFilho.addEventListener('click', recebeCor);
+      criarDivFilho.style.border = 'black solid 1px';
+      criarDivFilho.style.width = '40px';
+      criarDivFilho.style.height = '40px';
+      criarDivFilho.style.display = 'inline-block';
+      criarDivFilho.style.backgroundColor = 'white';
+    }
+  }
+}
 function recebeValor() {
   const tamanho = document.getElementById('board-size');
-  let numero = tamanho.value;
-  if (!numero)
-  window.alert("Board inválido!");
+  const numero = tamanho.value;
+  if (!numero) {
+    window.alert('Board inválido!'); 
+  }
   limpaBloco();
   criarBloco(numero);
   criarPixel(numero);
@@ -92,7 +136,7 @@ function criarButtonVQV() {
   body.appendChild(criarBotao);
   criarBotao.addEventListener('click', recebeValor);
 }
- criarButtonVQV();
+criarButtonVQV();
 
 function criarButton() {
   const criarBotao = document.createElement('button');
@@ -111,69 +155,18 @@ function criarButton() {
 }
 criarButton();
 
-
-function criarBloco(valor) {
-  const criarDivPixel = document.createElement('div');
-  if (valor==undefined || valor<5){
-    valor = 5
-    }
-    else if(valor>50)
-    valor = 50
-  body.appendChild(criarDivPixel);
-  criarDivPixel.style.marginTop = '20px';
-  if (valor==undefined)
-    valor = 5
-  let largura = (valor * 42)
-  let string = `${largura}px`
-  criarDivPixel.style.width = string
-  criarDivPixel.style.height = '210px';
-  criarDivPixel.style.marginLeft = '20px';
-  criarDivPixel.style.fontSize = '0px';
-  criarDivPixel.setAttribute('id', 'pixel-board');
-}
-
 function recebeCor(event) {
   const colorir = document.querySelector('.selected');
   const estilo = window.getComputedStyle(colorir);
   const cor = estilo.getPropertyValue('background-Color');
   event.target.style.backgroundColor = cor;
 }
-
-
-function criarPixel(valor) {
-  limpaPixel();
-  const pixelBlock = document.getElementById('pixel-board');
-  if (valor==undefined || valor<5){
-  valor = 5
-  }
-  else if(valor>50)
-  valor = 50
-  for (let i = valor; i > 0; i -= 1) {
-    for (let y = valor; y > 0; y -= 1) {
-      const criarDivFilho = document.createElement('div');
-      criarDivFilho.className = 'pixel';
-      pixelBlock.appendChild(criarDivFilho);
-      criarDivFilho.addEventListener('click', recebeCor);
-      criarDivFilho.style.border = 'black solid 1px';
-      criarDivFilho.style.width = '40px';
-      criarDivFilho.style.height = '40px';
-      criarDivFilho.style.display = 'inline-block';
-      criarDivFilho.style.backgroundColor = 'white';
-    }
-  }
-}
 function limpaPixel() {
-  let pixels = document.getElementsByClassName('pixel')
-  for(let i = pixels.length -1; i>=0; i-=1) {
-  pixels[i].remove(pixels[i])
+  const pixels = document.getElementsByClassName('pixel');
+  for (let i = pixels.length - 1; i >= 0; i -= 1) {
+    pixels[i].remove(pixels[i]);
+  }
 }
-}
-function limpaBloco() {
-  let bloco = document.getElementById('pixel-board');
-  bloco.remove()
-}
-
 
 criarBloco();
 criarPixel();
-
