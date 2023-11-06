@@ -3,7 +3,7 @@
 ## 📝 About
 
 
-The **Pixels Art** project is an html, css page where you can create art by clicking in the color pallet.
+The **Pixels Art** project is an html, css page where you can create art by clicking in the color palette.
 
 ---
 
