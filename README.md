@@ -1,5 +1,9 @@
 # Trybe Project - Pixels Art
 
+<h3 align="center">
+  <a href="https://thierrydrmv.github.io/pixels-art/">Access the Project</a>
+</h3>
+
 ## 📝 About
 
 
