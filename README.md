@@ -1,21 +1,29 @@
 # Trybe Project - Pixels Art
 
-<h3 align="center">
-  <a href="https://thierrydrmv.github.io/pixels-art/">Access the Project</a>
-</h3>
+[Access the Project](https://thierrydrmv.github.io/pixels-art/)
 
 ## 📝 About
 
 
 The **Pixels Art** project is an html, css page where you can create an image by clicking in the color palette.
 
----
 
 ## 🚀 Build With
 
-> [![Javascript][Javascript]][Javascript-url][![HTML5][HTML5]][HTML5-url][![CSS3][CSS3]][CSS3-url]
+[![Javascript][Javascript]][Javascript-url][![HTML5][HTML5]][HTML5-url][![CSS3][CSS3]][CSS3-url]
 
----
+## 📌 Skills developed
+
+In this project, I was able to:
+
+- Manipulate the DOM
+- Manipulate Javascript
+  
+## ⬇️ Installing dependencies
+
+  ```bash
+  npm install
+  ``` 
 
 ## 💬 Contact
 
