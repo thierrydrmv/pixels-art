@@ -8,7 +8,7 @@
 The **Pixels Art** project is an html, css page where you can create an image by clicking in the color palette.
 
 
-## 🚀 Build With
+## 🚀 Built With
 
 [![Javascript][Javascript]][Javascript-url][![HTML5][HTML5]][HTML5-url][![CSS3][CSS3]][CSS3-url]
 
